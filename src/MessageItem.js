@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MessageItem({ message }) {
+export default function MessageItem({ message = {} }) {
   return (
     <div>
       <h3>{message.subject}</h3>

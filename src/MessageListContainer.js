@@ -1,17 +1,17 @@
 import React from "react"
 import { useParams } from "react-router-dom";
 import MessageList from "./MessageList"
-import MessageItem from "./MessageItem"
 
-export default function FolderContent({ messages }) {
+export default function MessageListContainer({ folders = [], messages = [] }) {
   const { folderId } = useParams();
+
+  const currentFolder = folders.find(f => f.id === Number(folderId));
+  const folderName = currentFolder?.name;
   const currentMessages = messages.filter(m => m.folderId === Number(folderId));
-  console.log(currentMessages);
 
   return (
     <div className="container mt-3">
-      <MessageList messages={currentMessages} />
-      <MessageItem message={currentMessages[0]} />
+      <MessageList folderName={folderName} messages={currentMessages} />
     </div>
   )
 }

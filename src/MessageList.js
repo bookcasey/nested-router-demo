@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, useRouteMatch } from 'react-router-dom';
 
-export default function MessageList({ messages }) {
+export default function MessageList({ folderName = "Folder Name", messages = [] }) {
   const { url } = useRouteMatch();
   return (
     <div>
-      <h2>MessageList - {messages.length}</h2>
+      <h2>{folderName} - Total messages: {messages.length}</h2>
       <ul>
         {messages.map(m => 
           <li key={m.id}>
