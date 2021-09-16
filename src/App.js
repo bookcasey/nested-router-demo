@@ -4,7 +4,7 @@ import emailData from "./emailData";
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./Home/Homepage";
-import Folders from "./Folders/Folders"
+import Folders from "./Folders/FoldersIndex"
 
 function App() {
   const [messages, setMessages] = useState([]);
