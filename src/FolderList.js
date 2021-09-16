@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 
 export default function FolderList({ folders }) {
   const { folderId } = useParams();
-  console.log(folderId);
 
   return (
     <div className="list-group">

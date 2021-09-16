@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./Homepage";
 import FolderList from "./FolderList"
 import MessageListContainer from "./MessageListContainer";
-import MessageContainer from "./MessageContainer";
+import MessageItemContainer from "./MessageItemContainer";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -69,7 +69,7 @@ function App() {
 
               {/* RIGHT PANE */}
               <div className="col-10">
-                <MessageContainer folders={folders} messages={messages} />
+                <MessageItemContainer folders={folders} messages={messages} />
               </div>
             </div>
           </div>
