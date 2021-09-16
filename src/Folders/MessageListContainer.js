@@ -11,7 +11,7 @@ export default function MessageListContainer({ folders = [], messages = [] }) {
 
   return (
     <div className="container mt-3">
-      <h2>{folderName} - Total messages: {messages.length}</h2>
+      <h2>{folderName} - Total messages: {currentMessages.length}</h2>
       <MessageList folderName={folderName} messages={currentMessages} />
     </div>
   )

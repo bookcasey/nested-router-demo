@@ -4,9 +4,7 @@ import emailData from "./emailData";
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./Homepage";
-import FolderList from "./FolderList"
-import MessageListContainer from "./MessageListContainer";
-import MessageItemContainer from "./MessageItemContainer";
+import Folders from "./Folders/Folders"
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -27,52 +25,8 @@ function App() {
           <Homepage />
         </Route>
 
-        <Route exact path="/folders">
-          <div>
-            <div className="row">
-              {/* LEFT PANE */}
-              <div className="col-2">
-                <FolderList folders={folders} />
-              </div>
-
-              {/* RIGHT PANE */}
-              <div className="col-10">
-                <div className="container mt-3">You have {messages.length} messages across {folders.length} folders. Please select a folder to view your messages.</div>
-              </div>
-            </div>
-          </div>
-        </Route>
-
-        <Route exact path="/folders/:folderId/messages">
-          <div>
-            <div className="row">
-              {/* LEFT PANE */}
-              <div className="col-2">
-                <FolderList folders={folders} />
-              </div>
-
-              {/* RIGHT PANE */}
-              <div className="col-10">
-                <MessageListContainer folders={folders} messages={messages} />
-              </div>
-            </div>
-          </div>
-        </Route>
-
-        <Route exact path="/folders/:folderId/messages/:messageId">
-          <div>
-            <div className="row">
-              {/* LEFT PANE */}
-              <div className="col-2">
-                <FolderList folders={folders} />
-              </div>
-
-              {/* RIGHT PANE */}
-              <div className="col-10">
-                <MessageItemContainer folders={folders} messages={messages} />
-              </div>
-            </div>
-          </div>
+        <Route path="/mailboxes">
+          <Folders folders={folders} messages={messages} />
         </Route>
       </Switch>
     </Router>
