@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import emailData from "./emailData";
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Homepage from "./Homepage";
+import Homepage from "./Home/Homepage";
 import Folders from "./Folders/Folders"
 
 function App() {
