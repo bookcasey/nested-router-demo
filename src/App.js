@@ -1,32 +1,21 @@
 
 import React, { useState, useEffect } from "react";
-import emailData from "./emailData";
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Homepage from "./Home/Homepage";
-import Folders from "./Folders/FoldersIndex"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
-  const [messages, setMessages] = useState([]);
-  const [folders, setFolders] = useState([]);
-
-  useEffect(() => {
-    const newMessages = [], newFolders = [];
-    Object.keys(emailData.messages).forEach(key => newMessages.push(emailData.messages[key]));
-    Object.keys(emailData.folders).forEach(key => newFolders.push(emailData.folders[key]));
-    setMessages(newMessages);
-    setFolders(newFolders);
-  }, []);
 
   return (
     <Router>
+      <Link to="/">Home</Link>
+      <Link to="/settings">Settings</Link>
       <Switch>
         <Route exact path="/">
-          <Homepage />
+          <p>Homepage</p>
         </Route>
 
-        <Route path="/mailboxes">
-          <Folders folders={folders} messages={messages} />
+        <Route path="/settings">
+          <p>Settings</p>
         </Route>
       </Switch>
     </Router>
