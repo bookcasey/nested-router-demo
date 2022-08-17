@@ -1,9 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
 import Users from './Users'
-import UserProfile from './UserProfile';
-import UserPosts from './UserPosts';
-import UserNav from './UserNav';
+// import UserProfile from './UserProfile';
+// import UserPosts from './UserPosts';
+// import UserNav from './UserNav';
+import User from './User';
 
 function App() {
 
@@ -38,14 +39,8 @@ function App() {
               <Users />
             </Route>
 
-            <Route exact path="/users/:userId">
-              <UserNav />
-              <UserProfile />
-            </Route>
-
-            <Route path="/users/:userId/posts">
-              <UserNav />
-              <UserPosts />
+            <Route path="/users/:userId">
+              <User />
             </Route>
 
             <Route>

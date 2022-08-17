@@ -1,7 +1,9 @@
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, useRouteMatch, NavLink } from "react-router-dom";
 
 function UserNav() {
 	const { userId } = useParams();
+	const { url } = useRouteMatch();
+
 	return (
 		<>
 			<div className='container'>
@@ -9,12 +11,12 @@ function UserNav() {
 
 				<ul className="nav nav-tabs">
 					<li className="nav-item">
-						<NavLink to={`/users/${userId}`} exact className='nav-link'>
+						<NavLink to={url} exact className='nav-link'>
 							Profile
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink to={`/users/${userId}/posts`} className='nav-link'>
+						<NavLink to={`${url}/posts`} className='nav-link'>
 							Posts
 						</NavLink>
 					</li>
