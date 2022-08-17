@@ -12,48 +12,46 @@ function App() {
       <div className='container m-2'>
         <ul className="nav nav-pills nav-justified">
           <li className="nav-item">
-            <NavLink exact className="nav-link" to="/">Home</NavLink>
+            <NavLink to="/" exact className="nav-link">Home</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/about">About</NavLink>
+            <NavLink to="/about" className="nav-link">About</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/users">Users</NavLink>
+            <NavLink to="/users" className="nav-link">Users</NavLink>
           </li>
         </ul>
 
         <hr />
 
         <div className='row'>
-          {/* <Switch> */}
-          <Route exact path="/">
-            <h1>Homepage</h1>
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <h1>Homepage</h1>
+            </Route>
 
-          <Route path="/about">
-            <h1>About</h1>
-          </Route>
+            <Route path="/about">
+              <h1>About</h1>
+            </Route>
 
-          <Route exact path="/users">
-            <Users />
-          </Route>
+            <Route exact path="/users">
+              <Users />
+            </Route>
 
-          <Route path="/users/:userId">
-            <UserNav />
-          </Route>
+            <Route exact path="/users/:userId">
+              <UserNav />
+              <UserProfile />
+            </Route>
 
-          <Route exact path="/users/:userId">
-            <UserProfile />
-          </Route>
+            <Route path="/users/:userId/posts">
+              <UserNav />
+              <UserPosts />
+            </Route>
 
-          <Route path="/users/:userId/posts">
-            <UserPosts />
-          </Route>
-
-          {/* <Route>
-            <p>Not found</p>
-          </Route>
-          </Switch> */}
+            <Route>
+              <p>Not found</p>
+            </Route>
+          </Switch>
         </div>
       </div>
     </Router >
